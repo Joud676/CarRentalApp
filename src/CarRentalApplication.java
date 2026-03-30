@@ -115,7 +115,9 @@ public class CarRentalApplication {
                     double gas = CostCalculator.calculateGasCost(mileage, car.getFuel());
                     double total = CostCalculator.calculateTotal(rental, gas);
 
-                    System.out.println("Vehicle: " + car.getMake() + " " + car.getModel() + " (" + car.getYear() + ")");
+                    System.out.println("Vehicle Make and Model: " + car.getMake() + " " + car.getModel() + " (" + car.getYear() + ")");
+                    System.out.println("Vehicle Category: " + car.getCategory());
+                    System.out.println("Max Passengers: " + car.getStructure().getMaximumPassengers());
                     System.out.println("Comfort Level: " + car.getStructure().getComfortLevel());
                     System.out.println("------------------------------------------");
                     // DP7: Usability - Ensures clear and consistent number formatting for better readability.

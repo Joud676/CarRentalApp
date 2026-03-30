@@ -67,4 +67,10 @@ public class InputValidationHandler {
                 .replace("٩", "9");
     }
 
+    // Defence in depth double check
+    public static boolean isValid(int passengers, int days, double mileage) {
+        return passengers > 0 && passengers <= 7
+                && days > 0 && days <= 365
+                && mileage > 0 && mileage <= 50000;
+    }
 }
