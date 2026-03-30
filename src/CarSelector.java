@@ -9,7 +9,8 @@ public class CarSelector {
 
         // DP5: Minimize Trust Surface & SR4: Operational Limits
         // ( Validate all input values before processing to prevent invalid or unsafe data )
-        if (allCars == null || allCars.isEmpty() || passengers <= 0 || passengers > 7 || days > 365 || days <= 0 || mileage <= 0 || mileage > 50000) {
+        if (allCars == null || allCars.isEmpty() ||
+                !InputValidationHandler.isValid(passengers, days, mileage)) {
             // DP1: Fail-safe Default (Return an empty list as the safest default result )
             return bestOptions;
         }
@@ -43,7 +44,7 @@ public class CarSelector {
                 minTotal = total;
                 bestOptions.clear();
                 bestOptions.add(car);
-            } else if (Math.abs(total - minTotal) < 0.01) {
+            } else if (total == minTotal) {
                 handleComfortComparison(bestOptions, car);
             }
         }

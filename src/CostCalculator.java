@@ -1,6 +1,6 @@
 public class CostCalculator {
     // SR5: Protect Constant Variables
-    private static final double GAS_PRICE_PER_LITER = 2.25;
+    private static final double GAS_PRICE_PER_GALLON = 2.25;
 
     // DP3: Least Privilege ( Static method is used because no object state is needed )
     public static double calculateRentalCost(double dailyRate, int days) {
@@ -18,7 +18,7 @@ public class CostCalculator {
         if (fuelEfficiency <= 0 || mileage <= 0) return 0.0;
 
         // Required formula: (mileage ÷ fuelEfficiency) × gas price
-        return (mileage / fuelEfficiency) * GAS_PRICE_PER_LITER;
+        return (mileage / fuelEfficiency) * GAS_PRICE_PER_GALLON;
     }
 
     // DP3: Least Privilege

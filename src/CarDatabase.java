@@ -18,6 +18,6 @@ public class CarDatabase {
     }
 
     public List<Car> getAllCars(){
-        return Collections.unmodifiableList(carList); //
+        return Collections.unmodifiableList(carList);
     }
 }
