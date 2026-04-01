@@ -44,7 +44,7 @@ public class CarRentalApplication {
                 days = InputValidationHandler.validateDays(days);
                 isValid = true;
             } catch (NumberFormatException e) {
-                // Fail Secure (prevent the long java error) -SR2- & Psychological Acceptability
+                // Fail Secure & -SR2- (prevent the long java error)  & Psychological Acceptability
                 System.out.println("Error: Please enter valid numbers only, without letters or symbols.");
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
@@ -63,7 +63,7 @@ public class CarRentalApplication {
                 passengers = InputValidationHandler.validatePassengers(passengers);
                 isValid = true;
             } catch (NumberFormatException e) {
-                // Fail Secure (prevent the long java error) -SR2- & Psychological Acceptability
+                // Fail Secure & -SR2- (prevent the long java error)  & Psychological Acceptability
                 System.out.println("Error: Please enter valid numbers only, without letters or symbols.");
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
@@ -82,7 +82,7 @@ public class CarRentalApplication {
                 mileage = InputValidationHandler.validateMileage(mileage);
                 isValid = true;
             } catch (NumberFormatException e) {
-                // Fail Secure (prevent the long java error) -SR2- & Psychological Acceptability
+                // Fail Secure & -SR2- (prevent the long java error)  & Psychological Acceptability
                 System.out.println("Error: Please enter valid numbers only, without letters or symbols.");
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
@@ -90,17 +90,16 @@ public class CarRentalApplication {
                 System.out.println("Sorry, an unexpected error occurred. Please try again.");
             }
         }
-        System.out.println("\n[🔍] Searching our database for the best matches...");
+        System.out.println("\nSearching our database for the best matches...");
 
         try {
-            // 1. Create the database and selector objects
             CarDatabase db = new CarDatabase();
             CarSelector selector = new CarSelector();
 
-            // 2. Search for the best matching cars using validated inputs
+            // Search for the best matching cars using validated inputs
             List<Car> bestCars = selector.findBestCars(db.getAllCars(), passengers, days, mileage);
 
-            // 3. Display results clearly for better usability and user acceptance
+            // Display results clearly for better usability and user acceptance
             if (bestCars.isEmpty()) {
                 System.out.println("\n[!] Sorry, no cars found matching your requirements.");
             } else {

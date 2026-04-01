@@ -4,25 +4,21 @@ import java.util.List;
 public class CarSelector {
 
     public List<Car> findBestCars(List<Car> allCars, int passengers, int days, double mileage) {
-        // DP1: Fail-safe Default (Start with an empty list as the safest default result)
         List<Car> bestOptions = new ArrayList<>();
 
-        // DP5: Minimize Trust Surface & SR4: Operational Limits
-        // ( Validate all input values before processing to prevent invalid or unsafe data )
         if (allCars == null || allCars.isEmpty() ||
                 !InputValidationHandler.isValid(passengers, days, mileage)) {
-            // DP1: Fail-safe Default (Return an empty list as the safest default result )
             return bestOptions;
         }
 
         List<Car> suitableCars = new ArrayList<>();
 
-        // Filter cars that can support the required number of passengers
         for (Car car : allCars) {
             if (car.getStructure().getMaximumPassengers() >= passengers) {
                 suitableCars.add(car);
             }
         }
+
 // DP1: Fail-safe Default ( Return empty result if no suitable cars are found )
         if (suitableCars.isEmpty()) {
             return bestOptions;
